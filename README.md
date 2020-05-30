@@ -24,6 +24,9 @@ group by t1.id2,t2.id2 order by max(t1.id1),t2.id2,t1.id2;
 
 ## 解题思路
 ### 算法流程
-![image](https://github.com/missFuture/zte-com2020/blob/master/images/软件框架.png)
-
+<div align=right>
+<img width = '400' height = '400' src = "https://github.com/missFuture/zte-com2020/blob/master/images/软件框架.png"/>
+</div>
+### 数据类型
+![image](https://github.com/missFuture/zte-com2020/blob/master/images/数据类型图.png)
 
