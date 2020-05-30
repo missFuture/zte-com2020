@@ -24,4 +24,4 @@ group by t1.id2,t2.id2 order by max(t1.id1),t2.id2,t1.id2;
 
 ## 解题思路
 ### 算法流程
-<div align=center>![image](https://github.com/missFuture/zte-com2020/blob/master/images/软件框架.png)</div>
+<div style="align: center">![image](https://github.com/missFuture/zte-com2020/blob/master/images/软件框架.png)</div>
