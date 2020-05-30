@@ -26,7 +26,7 @@ group by t1.id2,t2.id2 order by max(t1.id1),t2.id2,t1.id2;
 ### 算法流程
 ```mermaid
 graph TD
-  
+  A-->B
   数据读入-->数据初始化
   数据初始化-->联结功能模块
   联结功能模块-->分组功能模块
