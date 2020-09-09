@@ -38,11 +38,11 @@ group by t1.id2,t2.id2 order by max(t1.id1),t2.id2,t1.id2;
 [table1.csv](https://github.com/missFuture/zte-com2020/blob/master/table1.csv)和[table2.csv](https://github.com/missFuture/zte-com2020/blob/master/table2.csv)是采用excel生成的10000组测试数据，id1顺序打乱，id2,id3均在[0，100]范围内,然后采用SQLyog生成正确的实验结果。结果保存在[result.csv](https://www.jianshu.com/p/ea6ec80ad5f2)中。最后和程序运行的结果进行对比，验证其是否正确。
 
 ### 实验结果
-|阶段|初始化|联结|分组|排序|总计|得分|排名|
-|--|--|--|--|--|--|--|--|
-|Repeat BST(ms)|6.46|203|865|14|1088|10|98/100|
-|--|--|--|--|--|--|--|--|
-|Hash + Index(ms)|65|102|23|8|198|.|.|
+|阶段|初始化|联结|分组|排序|总计|得分|
+|--|--|--|--|--|--|--|
+|Repeat BST(ms)|6.46|203|865|14|1088|10|
+|--|--|--|--|--|--|--|
+|Hash + Index(ms)|65|102|23|8|198|.|
 
 ## 改进方向
 对于t2表格，采用带重复键值的二叉树搜索树完成，查询速度不一定是o(logn)，由于前期采用基于红黑树的map完成，提交结果提示超过限制内存，改用二叉搜索树存储t2表数据，键值是id3，这样t2表就按id3有序，理想查找时间是O(logn)，循环嵌套匹配t1表格，实现join。官方对题目讲解中，Join包括三种方法，嵌套循环连接，归并连接，散列连接。所以可以采用unordered_map完成join过程（[参考链接](https://github.com/jueserencai/sql-query-implementation)）。优化后的版本见[optimized_version](https://github.com/missFuture/zte-com2020/blob/master/optimized_version.cpp).
